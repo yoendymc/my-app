@@ -54,6 +54,8 @@ const Servicios = () => (
 const Contacto = ({match}) => (
     <div>
     <h2>Info de contacto</h2>
+    <Route exact path={`${match.url}/:contactoinfo`} render = {infoContacto}/>
+
     <Route exact path={match.url} render = {()=>(
 
         <h3>contact yoendy</h3>
@@ -78,6 +80,12 @@ const Contacto = ({match}) => (
             <a href  = "http://yoend.com" target = "_blanck">yoendy.com</a>
         </div>
     )}/>
+    </div>
+)
+
+const infoContacto = ( {match} ) =>(
+    <div>
+        <h4>{ match.params.contactoinfo }</h4>
     </div>
 )
 export default StaticSite
