@@ -2,12 +2,5 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/';
-import StaticSite from './components/Router'
-import AuthSite from './components/Auth'
-//import registerServiceWorker from './registerServiceWorker';
 
-//ReactDOM.render(<App />, document.getElementById('root'));
-//ReactDOM.render(<StaticSite />, document.getElementById('root'));
-//registerServiceWorker();
-
-ReactDOM.render(<AuthSite />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));

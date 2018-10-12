@@ -1,0 +1,6 @@
+{
+    "usuarios":[
+        { "id": 1, "pass": "yoendy", "correo": "yoendymc@gmail.com" },
+        { "id": 2, "pass": "Bruce", "correo": "yojander.martinez@nauta.cu" }
+    ]
+}

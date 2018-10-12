@@ -1,16 +1,15 @@
 import React, { Component, PropTypes } from 'react'
+import {cursos, categories, teachers} from '../../../Data/index'
 import ListaCursos from './ListaCursos'
 import ListaAddForm from './ListAddForm'
-class App extends Component {
+class Cursos extends Component {
     constructor(...props) {
         super(...props)
         this.state = {
-            cursos: [
-                { id: 1, nombre: 'React desde cerapio', profesor: 'yoendy' },
-                { id: 2, nombre: 'Angular desde cerapio', profesor: 'enyesao' }
-            ]
+            cursos: cursos
         }
         this.handleOnAddCurso = this.handleOnAddCurso.bind(this)
+        
     }
     handleOnAddCurso(e) {
         //alert('evento react')
@@ -18,32 +17,43 @@ class App extends Component {
         let form = e.target,
         curso = {
             id:form.id.value,
-            nombre:form.nombre.value || App.defaultProps.nombre,
-            profesor:form.profesor.value || App.defaultProps.profesor
+            name:form.nombre.value || Cursos.defaultProps.nombre,
+            teacher:form.profesor.value || Cursos.defaultProps.profesor,
+            date:form.date.value || Cursos.defaultProps.date,
+            amount:form.amount.value || Cursos.defaultProps.amount,
+            url:form.amount.url || Cursos.defaultProps.url,
+            categories:Cursos.defaultProps.categories
         }
         this.setState({
             cursos:this.state.cursos.concat([curso])
         })
         form.reset()
     }
-    render() {
 
+    
+
+    render() {
+        
         return (
             <div>
             <ListaAddForm onAddCurso = {this.handleOnAddCurso} />
-            <ListaCursos cursos={this.state.cursos} />
+            <ListaCursos cursos = {this.state.cursos} />
             </div>
         )
     }
 }
 
-App.propTypes = {
+Cursos.propTypes = {
     /*id:PropTypes.number.isRequired,
     nombre:PropTypes.string.isRequired ,
     profesor:PropTypes.string.isRequired */
 }
-App.defaultProps = {
+Cursos.defaultProps = {
     nombre:'Desconocido',
-    profesor:'La manta negra'
+    profesor:'La manta negra',
+    date:new Date(),
+    amount:30,
+    categories:[],
+    url:"https://github.com/curses"
 }
-export default App
+export default Cursos
